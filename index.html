@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictor Web App Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            color: purple;
+            margin-bottom: 20px;
+            animation: float 2s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        input:focus,
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        }
+
+        .circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-image: url('icon.jpg'); /* Replace with your circle image URL */
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .circle-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            bottom: 20px;
+            z-index: 2;
+        }
+
+        .circle-button.left {
+            left: 20px;
+            background-image: url('left-button-image.jpg'); /* Replace with your left button image URL */
+        }
+
+        .circle-button.right {
+            right: 20px;
+            background-image: url('right-button-image.jpg'); /* Replace with your right button image URL */
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        /* Add this new CSS for the animation */
+        @keyframes fadeOut {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.95); }
+        }
+
+        .login-container.fade-out {
+            animation: fadeOut 4s forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+
+    <div class="login-container">
+        <h1>XKING 👑 MINE HACK</h1>
+        <form id="loginForm" class="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <div id="errorMessage" class="error-message"></div>
+        </form>
+    </div>
+
+    <button class="circle-button left" onclick="window.location.href='https://www.youtube.com/@KH-Hi_1XBET1'"></button>
+    <button class="circle-button right" onclick="window.location.href='https://t.me/xkinghackHi1xbet'"></button>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Trigger the animation
+            document.querySelector('.login-container').classList.add('fade-out');
+
+            setTimeout(function() {
+                if (username === 'Gamemine' && password === 'Minemine') {
+                    window.location.href = 'second page.html'; // Replace with the name of the HTML page you want to redirect to
+                } else {
+                    errorMessage.textContent = 'Incorrect❌ login details, please contact the developer';
+                    document.querySelector('.login-container').classList.remove('fade-out');
+                }
+            }, 4000);
+        });
+    </script>
+</body>
+</html>

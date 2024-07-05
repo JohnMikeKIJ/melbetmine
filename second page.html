@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons with Background Image and ID Input</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: white;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 20px; /* Adjust this to position the circle closer or farther from the top */
+        }
+        .header .text {
+            color: purple;
+            font-size: 24px;
+            margin: 0 10px; /* Spacing between text and circle */
+            animation: float 2s ease-in-out infinite; /* Apply animation */
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-image: url('icon.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .square-button {
+            width: 100px;
+            height: 100px;
+            border: none;
+            background-image: url('melbet.png');
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            margin-top: 20px; /* Adjust to position the button below the ID input */
+        }
+        .rectangle-button {
+            width: 200px;
+            height: 50px;
+            border: none;
+            background-color: green;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px; /* Space between square and rectangle buttons */
+            text-align: center;
+            margin-bottom: 10px; /* Space below the green button */
+        }
+        .register-button {
+            width: 200px;
+            height: 50px;
+            border: none;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 20px; /* Space below the REGISTER button */
+        }
+        #id-input {
+            width: 200px;
+            height: 30px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin-top: 20px; /* Space between header and ID input */
+            font-size: 14px;
+            text-align: center;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px); /* Move up by 10px */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="text">Gems</div>
+        <div class="circle"></div>
+        <div class="text">Mine</div>
+    </div>
+    <input type="text" id="id-input" placeholder="Enter connect ID">
+    <button class="square-button" onclick="checkID()"></button>
+    <button class="rectangle-button" onclick="goToNextPage()">Instructions on how to use</button>
+    <button class="register-button" onclick="openRegisterURL()">REGISTER</button>
+    <p style="margin-bottom: 20px;">USE THE PROMO CODE 🏆 MELKING55 🏆 FOR 99% WIN🏆</p>
+
+    <script>
+        function checkID() {
+            var idInput = document.getElementById('id-input').value;
+            if (idInput.length === 9) {
+                alert('ID CONNECTED ✅');
+                // Redirect to next page
+                window.location.href = 'minehack.html';
+            } else {
+                alert('Invalid ID ❌');
+            }
+        }
+
+        function goToNextPage() {
+            // Redirect to another page
+            window.location.href = 'instructions.html';
+        }
+
+        function openRegisterURL() {
+            // Open a URL in a new tab or window
+            var url = 'https://bit.ly/MELKING55';
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

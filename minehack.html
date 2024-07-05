@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive 5x5 Grid with Shapes</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            box-sizing: border-box;
+            padding: 20px;
+            color: white;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .circle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid #333;
+            background-image: url('icon.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .label {
+            font-size: 36px;
+            position: absolute;
+            color: purple;
+            animation: bounce 1s infinite alternate;
+        }
+
+        .label.left {
+            left: 10px;
+            top: 10px;
+        }
+
+        .label.right {
+            right: 10px;
+            top: 10px;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+
+        .rectangle-container {
+            display: flex;
+            justify-content: space-between;
+            width: calc(100% - 40px);
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .rectangle {
+            width: 120px;
+            height: 50px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 2px solid #333;
+        }
+
+        .rectangle.left {
+            background-image: url('melbet.png');
+        }
+
+        .rectangle.right {
+            background-image: url('mine.jpg');
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            width: calc(100% - 40px);
+            max-width: 600px;
+            height: auto;
+            aspect-ratio: 1;
+            background-color: black;
+            border: 2px solid #333;
+        }
+
+        .box {
+            background-color: black;
+            border: 2px solid navy;
+        }
+
+        .show-button, .reset-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Dancing Script', cursive;
+            transition: background-color 0.3s ease;
+        }
+
+        .show-button {
+            background-color: green;
+        }
+
+        .show-button:hover {
+            background-color: darkgreen;
+        }
+
+        .reset-button {
+            background-color: red;
+            margin-left: 10px;
+        }
+
+        .reset-button:hover {
+            background-color: darkred;
+        }
+
+        .loading-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        .circle-button {
+            position: fixed;
+            bottom: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .circle-button.left {
+            left: 20px;
+            background-image: url('left-button-image.jpg');
+        }
+
+        .circle-button.right {
+            right: 20px;
+            background-image: url('right-button-image.jpg');
+        }
+    </style>
+</head>
+<body>
+    <div class="circle-container">
+        <div class="label left">XKING</div>
+        <div class="circle"></div>
+        <div class="label right">HACK</div>
+    </div>
+    <div class="rectangle-container">
+        <div class="rectangle left"></div>
+        <div class="rectangle right"></div>
+    </div>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <button class="show-button" onclick="showRandomImages()">SHOW MINE</button>
+    <button class="reset-button" onclick="reconnectId()">RECONNECT ID</button>
+
+    <div class="loading-message" id="loadingMessage"></div>
+
+    <button class="circle-button left" onclick="window.location.href='https://www.youtube.com/@KH-Hi_1XBET1'"></button>
+    <button class="circle-button right" onclick="window.location.href='https://t.me/xkinghackHi1xbet'"></button>
+
+    <script>
+        const imageUrl = 'image1.jpg'; // Replace with your image URL
+        let activeIndexes = [];
+
+        function showRandomImages() {
+            const loadingMessage = document.getElementById('loadingMessage');
+            loadingMessage.textContent = 'GENERATING MINE...';
+            loadingMessage.style.display = 'block';
+
+            setTimeout(() => {
+                loadingMessage.style.display = 'none';
+
+                const boxes = document.querySelectorAll('.box');
+
+                activeIndexes.forEach(index => {
+                    boxes[index].style.backgroundImage = '';
+                });
+
+                activeIndexes = getRandomIndexes(4, boxes.length);
+
+                activeIndexes.forEach(index => {
+                    boxes[index].style.backgroundImage = `url('${imageUrl}')`;
+                    boxes[index].style.backgroundSize = 'cover';
+                    boxes[index].style.backgroundPosition = 'center';
+                    boxes[index].style.backgroundRepeat = 'no-repeat';
+                });
+            }, 3000);
+        }
+
+        function reconnectId() {
+            const loadingMessage = document.getElementById('loadingMessage');
+            loadingMessage.textContent = 'RECONNECTING ID TO THE GAME SERVER...';
+            loadingMessage.style.display = 'block';
+
+            setTimeout(() => {
+                const boxes = document.querySelectorAll('.box');
+                
+                boxes.forEach(box => {
+                    box.style.backgroundImage = '';
+                });
+
+                activeIndexes = [];
+
+                loadingMessage.textContent = 'ID CONNECTED ✅';
+                
+                setTimeout(() => {
+                    loadingMessage.style.display = 'none';
+                }, 1000);
+            }, 5000);
+        }
+
+        function getRandomIndexes(count, max) {
+            const indexes = new Set();
+            while (indexes.size < count) {
+                const randomIndex = Math.floor(Math.random() * max);
+                indexes.add(randomIndex);
+            }
+            return [...indexes];
+        }
+    </script>
+</body>
+</html>
